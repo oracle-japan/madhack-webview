@@ -1,0 +1,85 @@
+<div class="oj-panel oj-sm-margin-2x-bottom basic-info-panel">
+  <h2><oj-bind-text value="[[name]]"></oj-bind-text> Station</h2>
+  <div class="oj-flex" style="margin-right:auto; margin-left:auto">
+    <oj-bind-for-each data="[[linesProvider]]">
+      <template>
+        <div class="oj-flex-item oj-flex oj-sm-align-items-center oj-sm-margin-1x-top">
+          <div class="oj-flex-item oj-sm-flex-0">
+            <img :src="[[$current.data.icon]]" :alt="[[$current.data.name + ' Line']]" width="24" height="24">
+          </div>
+          <div class="oj-flex-item oj-sm-padding-1x-start" style="white-space:nowrap">
+            <span><oj-bind-text value="[[$current.data.name]]"></oj-bind-text> Line</span>
+            <oj-bind-if test="[[! $current.data.normal]]">
+              <span role="image" class="oj-fwk-icon-status-warning oj-fwk-icon"></span>
+            </oj-bind-if>
+          </div>
+        </div>
+      </template>
+    </oj-bind-for-each>
+  </div>
+  <hr>
+  <div class="oj-sm-margin-2px-top address"><oj-bind-text value="[[address]]"></oj-bind-text></div>
+</div>
+<div class="oj-panel" style="padding-top: 0;">
+  <oj-tab-bar id="station-detail" edge="top" selection="{{selectedItem}}" class="oj-sm-margin-1x-bottom">
+    <ul>
+      <li id="route">
+        <a href="#" id="route-tab" aria-controls="route-tab-panel">
+          <span class="oj-tabbar-item-icon icomoon-icon icomoon-compass2"></span>
+          Route
+        </a>
+      </li>
+      <li id="tweets">
+        <a href="#" id="tweets-tab" aria-controls="tweets-tab-panel">
+          <span class="oj-tabbar-item-icon icomoon-icon icomoon-bubbles"></span>
+          Tweets
+        </a>
+      </li>
+    </ul>
+  </oj-tab-bar>
+  <oj-switcher value="[[selectedItem]]">
+    <div slot="route" id="route-tab-panel" role="tabpanel" aria-labelledby="route-tab">
+      <div class="oj-flex oj-sm-flex-direction-column oj-sm-margin-2x-horizontal">
+        <div class="oj-flex-item oj-flex-bar oj-sm-margin-1x-bottom">
+          <div class="oj-flex-bar-start oj-sm-margin-2x-end">
+            <div class="map-legend map-legend-symbol">A</div>
+          </div>
+          <div class="oj-flex-bar-middle map-key">Your Current Location</div>
+        </div>
+        <div class="oj-flex-item oj-flex-bar oj-sm-margin-2x-bottom">
+          <div class="oj-flex-bar-start oj-sm-margin-2x-end">
+            <div class="map-legend map-legend-symbol">B</div>
+          </div>
+          <div class="oj-flex-bar-middle map-key"><oj-bind-text value="[[name]]"></oj-bind-text> Station</div>
+        </div>
+      </div>
+      <div id="map" style="height:38vh; background-color: #ece9e6"></div>
+    </div>
+    <div slot="tweets" id="tweets-tab-panel" role="tabpanel" aria-labelledby="tweets-tab">
+      <oj-bind-for-each data="[[tweetsProvider]]">
+        <template data-oj-as="category">
+          <oj-collapsible :id="[[category.data.id]]" expanded="{{category.data.expanded}}" disabled="[[category.data.disabled]]">
+            <h3 slot="header"><oj-bind-text value="[[category.data.category]]"></oj-bind-text></h3>
+            <oj-list-view data="[[tweetsProvider.getChildDataProvider(category.data.id)]]">
+              <template  slot="itemTemplate" data-oj-as="tweet">
+                <div class="oj-flex-bar oj-sm-align-items-flex-start">
+                  <div class="oj-flex-bar-start oj-sm-margin-1x-vertical oj-sm-margin-2x-end">
+                    <span role="image" :class="[[tweet.data.emotionClasses]]"></span>
+                  </div>
+                  <div class="oj-flex-bar-middle oj-flex oj-sm-flex-direction-column oj-sm-margin-1x-vertical">
+                    <div class="oj-flex-item oj-text-sm">
+                      <oj-bind-text value="[[tweet.data.text]]"></oj-bind-text>
+                    </div>
+                    <div class="oj-flex-item oj-text-xs oj-text-secondary-color" style="text-align:right;">
+                      <oj-bind-text value="[[tweet.data.datetime]]"></oj-bind-text>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </oj-list-view>
+          </oj-collapsible>
+        </template>
+      </oj-bind-for-each>
+    </div>
+  </oj-switcher>
+</div>

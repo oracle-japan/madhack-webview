@@ -1,0 +1,1 @@
+"use strict";define(["appController"],function(t){return new function(){self.gotoShleter1=function(){t.router.go("shelter/35.6724254,139.7203652/Kitaoyama")},self.gotoStation1=function(){t.router.go("station/35.6724254,139.7203652/Gaiemmae")}}});

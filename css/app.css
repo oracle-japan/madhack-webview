@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.basic-info-panel h2,
+.basic-info-panel .address,
+.basic-info-panel .tel {
+  text-align: center;
+}
+.basic-info-panel h2 {
+  margin-top: 0;
+}
+.map-legend {
+  font-size: 14px;
+}
+.map-legend-symbol {
+  background-color: rgb(234,67,53);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+
+#tweets-tab-panel h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 0 5px;
+  background-color: #e6e3e0;
+}
+#tweets-tab-panel .oj-collapsible {
+  margin-bottom: 5px;
+}
+#tweets-tab-panel .oj-collapsible-content {
+  padding-top: 0;
+}
+#tweets-tab-panel .oj-listview-item {
+  padding: 4px;
+}
+#tweets-tab-panel .oj-listview-no-data-message.oj-listview-empty-text {
+  font-size: 0.85714rem;
+  color: rgba(16, 15, 14, 0.6);
+  padding: 4px;
+}
+
+.emotion-neautral,
+.emotion-positive,
+.emotion-negative {
+  font-size: 28px;
+}
+.emotion-neautral { color: #869e9e; }
+.emotion-negative { color: #EA7362; }
+.emotion-positive { color: #74B28E; }

@@ -1,0 +1,23 @@
+<div class="oj-panel oj-sm-margin-2x-bottom basic-info-panel">
+  <h2><oj-bind-text value="[[name]]"></oj-bind-text></h2>
+  <hr>
+  <div class="oj-sm-margin-2x-top address"><oj-bind-text value="[[address]]"></oj-bind-text></div>
+  <div class="oj-sm-margin-1x-top tel">Tel: <a :href="[['tel:' + tel()]]"><oj-bind-text value="[[tel]]"></oj-bind-text></a></div>
+</div>
+<div class="oj-panel">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-margin-2x-horizontal">
+    <div class="oj-flex-item oj-flex-bar oj-sm-margin-1x-bottom">
+      <div class="oj-flex-bar-start oj-sm-margin-2x-end">
+        <div class="map-legend map-legend-symbol">A</div>
+      </div>
+      <div class="oj-flex-bar-middle map-key">Your Current Location</div>
+    </div>
+    <div class="oj-flex-item oj-flex-bar oj-sm-margin-2x-bottom">
+      <div class="oj-flex-bar-start oj-sm-margin-2x-end">
+        <div class="map-legend map-legend-symbol">B</div>
+      </div>
+      <div class="oj-flex-bar-middle map-key"><oj-bind-text value="[[name]]"></oj-bind-text></div>
+    </div>
+  </div>
+  <div id="map" style="height:45vh; background-color: #ece9e6"></div>
+</div>

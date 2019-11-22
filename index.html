@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>MADHack</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="css/images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
+    <meta name="apple-mobile-web-app-title" content="Oracle JET">
+<!-- injector:theme -->
+<link rel="stylesheet" href="css/light/0.0.1/web/light.min.css" id="css" />
+<!-- endinjector -->
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/icomoon.css"/>
+  </head>
+  <body class="oj-web-applayout-body">
+    <div id="global-body" class="oj-web-applayout-page">
+      <header role="banner" class="oj-web-applayout-header">
+        <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
+          <div class="oj-flex-bar-center-absolute">
+            <h1 class="oj-web-applayout-header-title">
+              <oj-bind-text value="[[router.currentState().label]]"></oj-bind-text>
+            </h1>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="oj-web-applayout-content">
+        <oj-module id="main-content" config="[[moduleConfig]]"></oj-module>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/libs/require/require.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
